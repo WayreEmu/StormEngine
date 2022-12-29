@@ -11,21 +11,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{67428A3D-D3F7-0233-5CEC-FC09C8A0F936}</ProjectGuid>
+    <ProjectGuid>{3090B8BC-9C45-31B2-253A-2B8991EE27B6}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>StormPlayer</RootNamespace>
+    <RootNamespace>StromEngine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
@@ -42,24 +42,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\bin\Debug-windows-x86_64\StormPlayer\</OutDir>
-    <IntDir>..\bin-int\Debug-windows-x86_64\StormPlayer\</IntDir>
-    <TargetName>StormPlayer</TargetName>
-    <TargetExt>.exe</TargetExt>
+    <OutDir>..\bin\Debug-windows-x86_64\StromEngine\</OutDir>
+    <IntDir>..\bin-int\Debug-windows-x86_64\StromEngine\</IntDir>
+    <TargetName>StromEngine</TargetName>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\bin\Release-windows-x86_64\StormPlayer\</OutDir>
-    <IntDir>..\bin-int\Release-windows-x86_64\StormPlayer\</IntDir>
-    <TargetName>StormPlayer</TargetName>
-    <TargetExt>.exe</TargetExt>
+    <OutDir>..\bin\Release-windows-x86_64\StromEngine\</OutDir>
+    <IntDir>..\bin-int\Release-windows-x86_64\StromEngine\</IntDir>
+    <TargetName>StromEngine</TargetName>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>STM_BUILD_WINDOW;STM_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\StormEngine\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STM_BUILD_WINDOW;STM_BUILD_DLL;STM_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -67,17 +66,19 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\bin\Debug-windows-x86_64StormEngine;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\bin\Debug-windows-x86_64\StromEngine\StromEngine.lib</ImportLibrary>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Debug-windows-x86_64\StromEngine\StromEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\StromEngine\StromEngine.dll ..\bin\Debug-windows-x86_64\StormPlayer &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\StromEngine\StromEngine.dll ..\bin\Debug-windows-x86_64\StormPlayer &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>STM_BUILD_WINDOW;STM_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\StormEngine\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STM_BUILD_WINDOW;STM_BUILD_DLL;STM_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -85,18 +86,24 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\bin\Release-windows-x86_64StormEngine;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\bin\Release-windows-x86_64\StromEngine\StromEngine.lib</ImportLibrary>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Release-windows-x86_64\StromEngine\StromEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\StromEngine\StromEngine.dll ..\bin\Release-windows-x86_64\StormPlayer &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\StromEngine\StromEngine.dll ..\bin\Release-windows-x86_64\StormPlayer &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
+    <ClInclude Include="src\Storm.h" />
+    <ClInclude Include="src\Storm\Application.h" />
+    <ClInclude Include="src\Storm\Core.h" />
+    <ClInclude Include="src\Storm\EntryPoint.h" />
+    <ClInclude Include="src\Storm\Log.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StormEngine\StormEngine.vcxproj">
-      <Project>{D0BB0824-3C71-8119-C565-7BF0311A781D}</Project>
-    </ProjectReference>
+    <ClCompile Include="src\Storm\Application.cpp" />
+    <ClCompile Include="src\Storm\Log.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

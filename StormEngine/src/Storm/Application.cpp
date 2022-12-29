@@ -11,4 +11,9 @@ namespace Storm
 	{
 
 	}
+
+	void Application::Run()
+	{
+		while (true);
+	}
 }

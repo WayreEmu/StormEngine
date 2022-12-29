@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StormPlayer", "StormPlayer\StormPlayer.vcxproj", "{0E551424-726B-4C62-9285-A4B5936435F7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StormPlayer", "StormPlayer\StormPlayer.vcxproj", "{67428A3D-D3F7-0233-5CEC-FC09C8A0F936}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StormEngine", "StormEngine\StormEngine.vcxproj", "{1FF78264-850F-480F-A3C3-9D833054AA5F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StormEngine", "StormEngine\StormEngine.vcxproj", "{D0BB0824-3C71-8119-C565-7BF0311A781D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +11,16 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1FF78264-850F-480F-A3C3-9D833054AA5F}.Debug|x64.ActiveCfg = Debug|x64
-		{1FF78264-850F-480F-A3C3-9D833054AA5F}.Debug|x64.Build.0 = Debug|x64
-		{1FF78264-850F-480F-A3C3-9D833054AA5F}.Release|x64.ActiveCfg = Release|x64
-		{1FF78264-850F-480F-A3C3-9D833054AA5F}.Release|x64.Build.0 = Release|x64
-		{0E551424-726B-4C62-9285-A4B5936435F7}.Debug|x64.ActiveCfg = Debug|x64
-		{0E551424-726B-4C62-9285-A4B5936435F7}.Debug|x64.Build.0 = Debug|x64
-		{0E551424-726B-4C62-9285-A4B5936435F7}.Release|x64.ActiveCfg = Release|x64
-		{0E551424-726B-4C62-9285-A4B5936435F7}.Release|x64.Build.0 = Release|x64
+		{67428A3D-D3F7-0233-5CEC-FC09C8A0F936}.Debug|x64.ActiveCfg = Debug|x64
+		{67428A3D-D3F7-0233-5CEC-FC09C8A0F936}.Debug|x64.Build.0 = Debug|x64
+		{67428A3D-D3F7-0233-5CEC-FC09C8A0F936}.Release|x64.ActiveCfg = Release|x64
+		{67428A3D-D3F7-0233-5CEC-FC09C8A0F936}.Release|x64.Build.0 = Release|x64
+		{D0BB0824-3C71-8119-C565-7BF0311A781D}.Debug|x64.ActiveCfg = Debug|x64
+		{D0BB0824-3C71-8119-C565-7BF0311A781D}.Debug|x64.Build.0 = Debug|x64
+		{D0BB0824-3C71-8119-C565-7BF0311A781D}.Release|x64.ActiveCfg = Release|x64
+		{D0BB0824-3C71-8119-C565-7BF0311A781D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D10F30AE-8672-4C61-A39B-D3D6693D48EE}
 	EndGlobalSection
 EndGlobal
