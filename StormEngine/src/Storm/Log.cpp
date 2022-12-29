@@ -47,7 +47,7 @@ namespace Storm
 	}
 
 	void Log::LogInfo(Loggers log, const char* message)
-	{
+	{ 
 		if (log == Storm::Core)
 		{
 			SetConsoleTextAttribute(logger, FOREGROUND_BLUE);
